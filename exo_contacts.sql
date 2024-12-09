@@ -1,3 +1,4 @@
+DROP DATABASEIF EXISTS exo_contact ;
 CREATE DATABASE IF NOT EXISTS exo_contact CHARACTER SET utf8 COLLATE utf8_general_ci;
 USE exo_contacts;
 
@@ -25,15 +26,14 @@ CREATE TABLE contacts(
 
 
 CREATE TABLE telephone(
-   id BIGINT PRIMARY KEY,
-   id_contact BIGINT AUTO_INCREMENT,
+   id BIGINT PRIMARY KEY AUTO_INCREMENT,
+   id_contact BIGINT ,
    numero VARCHAR(50) NOT NULL,
    type VARCHAR(50),
-   id_1 BIGINT NOT NULL,
    FOREIGN KEY(id_contact) REFERENCES contacts(id)
 );
 
-insert into contacts (nom, prenom, adresse, cp, ville, pays_iso_3, date_de_naissance, sexe) values
+insert into contacts ( nom, prenom, adresse, cp, ville, pays_iso_3, date_de_naissance, sexe) values
  ('Ailey', 'Schuster','301 Rue Plaza', 93000, null, 26/02/2000, 'femme' ),
  ('George','Cerez','45 avenue des champs',13000,'Marseille','AFG',20/12/2010,null ),
  ('Amelie','POulain','54 rue du boulevard', null, null, 'ARM', 13/10/1999,null ),
@@ -76,16 +76,16 @@ INSERT INTO pays (iso_3, nom, iso_2, nationalite ) VALUES
 ( 'CZE', 'République Tchèque','CZ',  ' Tchèque');
 
 
-INSERT INTO telephone (numero ) VALUES 
-('0658594650'),
-('0782903277'),
-('0490261312'),
-('0659788545'),
-('074467898'),
-('0632121415'),
-('0784561216'),
-('0658474541'),
-('0786451210'),
-('0659462230');
+INSERT INTO telephone (numero,type ) VALUES 
+('0658594650',null),
+('0782903277',null),
+('0490261312',null),
+('0659788545',null),
+('074467898',null),
+('0632121415',null),
+('0784561216',null),
+('0658474541',null),
+('0786451210',null),
+('0659462230',null);
 
 
